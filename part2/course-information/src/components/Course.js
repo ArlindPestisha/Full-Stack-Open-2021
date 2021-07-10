@@ -1,15 +1,23 @@
-import Header from './Header'
-import Content from './Content'
-import Total from './Total'
+import Header from "./Header";
+import Content from "./Content";
+import Total from "./Total";
 
-const Course = ({ course }) => {
+const Course = ({ courses }) => {
   return (
     <>
-      <Header course={course.name} />
+      {courses.map(course => 
+        <div key={course.id}>
+          <Header course={course.name} />
+          <Content parts={course.parts} />
+          <Total parts={course.parts} />
+        </div>
+      )}
+
+      {/* <Header course={course.name} />
       <Content parts={course.parts} />
-      <Total parts={course.parts} />
+      <Total parts={course.parts} /> */}
     </>
   );
 };
 
-export default Course
+export default Course;

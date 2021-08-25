@@ -6,16 +6,14 @@ const App = () => {
   const [newName, setNewName] = useState("");
   const [personExists, setPersonExists] = useState(true);
 
-  // const person = persons;
-
   const addNewName = (event) => {
     event.preventDefault();
-    console.log("button clicked", event.target);
     const personObj = {
       name: newName,
-      important: Math.random() < 0.5,
-      id: persons.length + 1,
+      // important: Math.random() < 0.5,
+      // id: persons.length + 1,
     };
+
     setPersons(persons.concat(personObj));
     setNewName("");
   };
@@ -25,19 +23,11 @@ const App = () => {
     setNewName(event.target.value);
   };
 
-  const nameExists = personExists
-    ? newName : newName.filter((name) => name.important );
-  const setNameExists = () => setPersonExists(!personExists)
-    
-    
   return (
     <div>
       <h2>Phonebook</h2>
-      {/* <div>
-        { nameExists.alert(nameExists) }
-      </div> */}
+
       <form onSubmit={addNewName}>
-        { setNameExists.alert(`${newName} already exists`) }
         <div>
           name: <input value={newName} onChange={handleNewName} />
         </div>
